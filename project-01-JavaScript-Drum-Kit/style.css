@@ -1,9 +1,9 @@
 :root {
-    --font-letter:rgb(255, 255, 255);
-    --font-sound:rgb(243, 239, 28);
-    --font-playing:rgb(242, 184, 12);
-    --font-playing-background:rgba(62, 49, 23, 0.95);
-    --key-background: rgb(0,0,0,0.6);
+    --font-letter: rgb(255, 255, 255);
+    --font-sound: rgb(243, 239, 28);
+    --font-playing: rgb(242, 184, 12);
+    --font-playing-background: rgba(62, 49, 23, 0.95);
+    --key-background: rgb(0, 0, 0, 0.6);
 }
 
 html {
@@ -11,13 +11,13 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-size: 16px;
-    background-image: radial-gradient(circle, #191970, #2F2F2F);
+    background-image: radial-gradient(circle, #191970, #2f2f2f);
     font-family: 'Courier New', Courier, monospace;
 }
 
-.keys{
+.keys {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
     min-height: 100vh;
@@ -32,8 +32,8 @@ html {
     border: 1px solid white;
     border-radius: 0.5rem;
     background-color: var(--key-background);
-    box-shadow: 0 0 .5rem var(--font-letter);
-    transition: all .07s ease;
+    box-shadow: 0 0 0.5rem var(--font-letter);
+    transition: all 0.07s ease;
 }
 
 .play {
