@@ -1,0 +1,54 @@
+:root {
+    --font-letter:rgb(255, 255, 255);
+    --font-sound:rgb(243, 239, 28);
+    --font-playing:rgb(242, 184, 12);
+    --font-playing-background:rgba(62, 49, 23, 0.95);
+    --key-background: rgb(0,0,0,0.6);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-image: radial-gradient(circle, #191970, #2F2F2F);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.keys{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+.key {
+    width: 3.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    background-color: var(--key-background);
+    box-shadow: 0 0 .5rem var(--font-letter);
+    transition: all .07s ease;
+}
+
+.play {
+    transform: scale(0.95);
+    background-color: var(--font-playing-background);
+    font-size: 0.95rem;
+}
+
+kbd {
+    display: block;
+    color: var(--font-letter);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+span {
+    color: var(--font-sound);
+}
