@@ -1,0 +1,132 @@
+:root {
+    --backgroung-color:rgb(240,255,188);
+    --clock-border: rgb(44,61,79);
+    --clock-backgroung-color: rgb(254, 254, 252);
+    --marking-color: rgb(189, 189, 203);
+    /* --blue-hand-color: rgb(97, 175, 255); */
+    --red-hand-color: rgb(255, 94, 94);
+}
+html {
+    background: var(--backgroung-color);
+    text-align: center;
+    font-size: 16px;
+  }
+
+body {
+    margin:0;
+    font-size: 1.5rem;
+    min-height: 100vh;;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.clock {
+    width: 18rem;
+    height: 18rem;
+    border:1.4rem solid var(--clock-border);
+    border-radius: 50%;
+    margin: 3rem auto;
+    position: relative;
+    box-shadow: 0 20px 30px rgba(104,75,106,0.65);
+}
+
+.outer-clock-face{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--clock-backgroung-color);
+    overflow: hidden;
+}
+
+.outer-clock-face::after {
+transform: rotate(90deg);
+}
+
+.outer-clock-face::before,
+.outer-clock-face::after,
+.outer-clock-face .marking{
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: var(--marking-color);
+  z-index: 0;
+  left: 49%;
+}
+
+.outer-clock-face .marking {
+  background: var(--marking-color);
+  width: 3px;
+}
+
+.outer-clock-face .marking.marking-one {
+  transform: rotate(30deg)
+}
+
+.outer-clock-face .marking.marking-two {
+  transform: rotate(60deg)
+}
+
+.outer-clock-face .marking.marking-three {
+  transform: rotate(120deg)
+}
+
+.outer-clock-face .marking.marking-four {
+  transform: rotate(150deg)
+}
+
+.inner-clock-face {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: var(--clock-backgroung-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.inner-clock-face::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: var(--clock-border);
+  z-index: 11;
+}
+
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 6px;
+  background: var(--clock-border);
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hand.hour-hand {
+  width: 20%;
+  z-index: 3;
+}
+
+.hand.minute-hand {
+  height: 3px;
+  z-index: 10;
+  width: 35%;
+}
+
+.hand.second-hand {
+  background: var(--red-hand-color);
+  width: 40%;
+}
