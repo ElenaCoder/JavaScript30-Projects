@@ -25,25 +25,20 @@ setInterval(setDate, 1000);
 
 
 const audio = document.querySelector(`audio[data-sound="tink"]`);
+const soundButton = document.querySelector(`.sound-button`);
 let isPlaying = false;
 
-function playAudio() {
-    if (!isPlaying) {
-      audio.currentTime = 0;
-      audio.play();
-      isPlaying = true;
-    }
-  }
-
 const observer = new MutationObserver(mutationsList => {
-  for (let mutation of mutationsList) {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-      const styleValue = secondHand.style.transform;
-      console.log(`Transform property changed to: ${styleValue}`);
-      playAudio();
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+        const styleValue = secondHand.style.transform;
+        console.log(`Transform property changed to: ${styleValue}`);
+        audio.play();
+      }
     }
-  }
-});
+  });
 
-observer.observe(secondHand, { attributes: true });
-document.addEventListener('click', playAudio);
+
+soundButton.addEventListener('click', function() {
+    observer.observe(secondHand, { attributes: true });
+  });
