@@ -21,3 +21,19 @@ function setDate() {
 }
 
 setInterval(setDate, 1000);
+
+
+
+const audio = document.querySelector(`audio[data-sound="tink"]`);
+
+const observer = new MutationObserver(mutationsList => {
+  for (let mutation of mutationsList) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+      const styleValue = secondHand.style.transform;
+      console.log(`Transform property changed to: ${styleValue}`);
+      audio.play();
+    }
+  }
+});
+
+observer.observe(secondHand, { attributes: true });
