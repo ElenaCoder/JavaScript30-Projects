@@ -121,7 +121,6 @@ body {
 }
 
 .hand.minute-hand {
-    height: 3px;
     z-index: 10;
     width: 35%;
 }
@@ -129,4 +128,5 @@ body {
 .hand.second-hand {
     background: var(--red-hand-color);
     width: 40%;
+    height: 3px;
 }
