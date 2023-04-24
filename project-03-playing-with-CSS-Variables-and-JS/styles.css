@@ -1,0 +1,78 @@
+:root {
+    /* --base: rgb(25, 53, 73); */
+    --base: #5ec9c9;
+    --spacing: 10px;
+    --blur: 1px;
+    --border-radius: 0%;
+
+    --background: rgb(25, 53, 73);
+    --double-spacing: 10px;
+    /* --initial: rgb(255, 198, 0); */
+    --white: rgb(240, 255, 255);
+}
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+
+    background: var(--background);
+    color: var(--white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.wrapper {
+    margin: var(--double-spacing);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.hl {
+    color: var(--base);
+}
+
+.controls {
+    align-self: center;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: var(--double-spacing);
+}
+.controls input {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    width: 100px;
+}
+.input {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.img {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: var(--spacing);
+    background-color: var(--base);
+    border-radius: var(--border-radius);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    filter: blur(var(--blur));
+    border-radius: var(--border-radius);
+}
