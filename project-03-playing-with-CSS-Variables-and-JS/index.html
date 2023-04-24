@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playing-with-CSS-Variables-and-JS</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Playing-with-CSS-Variables-and-JS</title>
+        <link rel="stylesheet" href="./styles.css" />
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h2>Update CSS Variables with <span class="hl">JS</span></h2>
+            <div class="controls">
+                <div class="input input-1">
+                    <label for="spacing">Spacing:&nbsp;</label>
+                    <input
+                        type="range"
+                        name="spacing"
+                        min="10"
+                        max="200"
+                        value="10"
+                        data-sizing="px"
+                    />
+                </div>
+
+                <div class="input input-2">
+                    <label for="blur">Blur:&nbsp;</label>
+                    <input
+                        type="range"
+                        name="blur"
+                        min="0"
+                        max="25"
+                        value="1"
+                        data-sizing="px"
+                    />
+                </div>
+
+                <div class="input input-3">
+                    <label for="base">Base Color:&nbsp;&nbsp;</label>
+                    <input type="color" name="base" value="#5ec9c9" />
+                </div>
+
+                <div class="input input-4">
+                    <label for="border-radius">Border radius:&nbsp;</label>
+                    <input
+                        type="range"
+                        name="border-radius"
+                        min="0"
+                        max="50"
+                        value="5"
+                        data-sizing="%"
+                    />
+                </div>
+            </div>
+
+            <div class="img">
+                <img
+                    src="./assets/nature-image.jpg"
+                    alt="Photo with mountains"
+                />
+            </div>
+        </div>
+    </body>
 </html>
