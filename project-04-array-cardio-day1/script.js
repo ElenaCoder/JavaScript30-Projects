@@ -101,6 +101,9 @@ console.table(sortedInventorsByYearsLived);
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+const sortedPeople = people.sort((lastOne, nextOne) => lastOne.split(",")[0] > nextOne.split(",")[0] ? 1: -1);
+console.log('Task7: ');
+console.table(sortedPeople);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
