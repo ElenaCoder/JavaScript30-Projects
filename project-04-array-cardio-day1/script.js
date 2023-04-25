@@ -70,38 +70,51 @@ console.table(filteredInvestors);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names
-const inventorsFullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+const inventorsFullNames = inventors.map(
+    (inventor) => `${inventor.first} ${inventor.last}`,
+);
 console.log('Task2: ', inventorsFullNames);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-const sortedInventorsFromOldestToYoungest = inventors.sort((a, b) => (a.year - b.year));
-const sortedInventorsFromOldestToYoungest2 = inventors.sort((a, b) => a.year > b.year ? 1: -1); //another way to do the same thing
+const sortedInventorsFromOldestToYoungest = inventors.sort(
+    (a, b) => a.year - b.year,
+);
+const sortedInventorsFromOldestToYoungest2 = inventors.sort((a, b) =>
+    a.year > b.year ? 1 : -1,
+); //another way to do the same thing
 console.log('Task3: ');
 console.table(sortedInventorsFromOldestToYoungest);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
-const totalYearsLived = inventors.reduce((total, inventor) => (total + (inventor.passed - inventor.year)), 0);
+const totalYearsLived = inventors.reduce(
+    (total, inventor) => total + (inventor.passed - inventor.year),
+    0,
+);
 console.log('Task4: ', totalYearsLived);
 
 // 5. Sort the inventors by years lived
-const sortedInventorsByYearsLived = inventors.sort((a, b) => a.passed - a.year > b.passed - b.year ? -1 : 1);
+const sortedInventorsByYearsLived = inventors.sort((a, b) =>
+    a.passed - a.year > b.passed - b.year ? -1 : 1,
+);
 console.log('Task5: ');
 console.table(sortedInventorsByYearsLived);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-    // const category = document.querySelector('.mw-category');
-    // const links = Array.from(category.querySelectorAll('a'));
-    // const de = links
-    //             .map(link => link.textContent)
-    //             .filter(streetName => streetName.includes('de'));
+// const category = document.querySelector('.mw-category');
+// const links = Array.from(category.querySelectorAll('a'));
+// const de = links
+//             .map(link => link.textContent)
+//             .filter(streetName => streetName.includes('de'));
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
-const sortedPeople = people.sort((lastOne, nextOne) => lastOne.split(",")[0] > nextOne.split(",")[0] ? 1: -1);
+const sortedPeople = people.sort((lastOne, nextOne) =>
+    lastOne.split(',')[0] > nextOne.split(',')[0] ? 1 : -1,
+);
 console.log('Task7: ');
 console.table(sortedPeople);
 
@@ -134,4 +147,3 @@ const transportation = data.reduce((obj, item) => {
 }, {});
 
 console.log('Task8: ', transportation);
-
