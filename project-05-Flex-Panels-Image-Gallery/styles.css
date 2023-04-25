@@ -10,6 +10,7 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+    margin: 0;
 }
 
 .panels {
@@ -37,23 +38,23 @@ html {
 }
 
 .panel1 {
-    background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+    background-image: url("./assets/mountains-img.jpg");
 }
 
 .panel2 {
-    background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+    background-image: url("./assets/bridge-img.jpg");
 }
 
 .panel3 {
-    background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d);
+    background-image: url("./assets/canyon.jpg");
 }
 
 .panel4 {
-    background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500)
+    background-image:url("./assets/ballons-img.jpg");
 }
 
 .panel5 {
-    background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+    background-image: url("./assets/ice-img.jpg");
 }
 
 
@@ -88,16 +89,18 @@ html {
 
 .panel p{
     /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-size: 1.6rem;
+    font-size: 2rem;
     text-transform: lowercase;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    /* text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45); */
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.9);
+
 }
 
 .panel p:nth-child(2) {
-    font-size: 2.6em;
+    font-size: 2em;
   }
 
 .panel.open {
-    font-size: 4rem;
+    font-size: 2.3rem;
     flex:5;
 }
