@@ -34,7 +34,7 @@ function displayMatches() {
             );
             const cityState = place.state.replace(
                 regex,
-                `<span class='highlight'>${this.state}</span>`,
+                `<span class='highlight'>${this.value}</span>`,
             );
 
             return `
