@@ -7,7 +7,7 @@ This is Fun with HTML5 Canvas project. This project is all about creating a fun 
 ## Features
  - The ability to choose the color and size of the brush
  - The ability to clear the canvas and start over
- - The ability to change the blend mode of the brushI.
+ - The ability to change the width of the brush.
 
 ## Technologies used
 
