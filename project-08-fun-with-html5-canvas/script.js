@@ -28,12 +28,6 @@ function draw(e) {
     [lastX, lastY] = [e.offsetX, e.offsetY];
 }
 
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', (e) => {
-    isDrawing = true;
-    [lastX, lastY] = [e.offsetX, e.offsetY];
-});
-
 function colorUpdatingHandler() {
     ctx.strokeStyle = `${this.value}`;
 }
@@ -46,8 +40,27 @@ function lineWidthHandler() {
     ctx.lineWidth = this.value;
 }
 
+// mouse event listeners
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
 canvas.addEventListener('mouseup', () => (isDrawing = false));
 canvas.addEventListener('mouseout', () => (isDrawing = false));
+
+
+// touch event listeners
+canvas.addEventListener('touchmove', (e) => {
+    draw(e.touches[0]); // use the first touch point
+  });
+  canvas.addEventListener('touchstart', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.touches[0].clientX, e.touches[0].clientY]; // use the first touch point
+  });
+  canvas.addEventListener('touchend', () => isDrawing = false);
+
 
 colorButton.addEventListener('input', colorUpdatingHandler);
 clearButton.addEventListener('click', clearAllHandler);
