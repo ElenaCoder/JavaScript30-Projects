@@ -39,4 +39,11 @@ console.log('Task 3: ', comment);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
-// delete the comment with the ID of 823423
+// 4. delete the comment with the ID of 823423
+const index = comments.findIndex((comment) => comment.id === 823423);
+const newCommentsArr = [
+    ...comments.slice(0, index),
+    ...comments.slice(index + 1),
+];
+console.log('Task 4: ');
+console.table(newCommentsArr);
