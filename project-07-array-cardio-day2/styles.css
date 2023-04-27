@@ -1,0 +1,23 @@
+.wrapper {
+    margin: 10px;
+}
+h1 {
+    text-align: center;
+}
+p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    text-align: center;
+    font-size: 18px;
+    background-color: rgb(250, 252, 253);
+    box-shadow: 1px 1px 5px gray;
+    padding: 10px;
+}
+
+span {
+    font-weight: 900;
+    color: rgb(8, 8, 8);
+    font-size: 24px;
+    text-shadow: 1px 1px rgb(171, 173, 171);
+}
