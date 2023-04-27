@@ -13,12 +13,13 @@
             <div class="control-panel">
                 <div class="input input-1">
                     <label for="color">Color:</label>
-                    <input type="color" name="color" value="#5ec9c9" />
+                    <input data-color='color' type="color" name="color" value="rgb(0,0,0)" />
                 </div>
-                <div class="input input-2">Clear all</div>
+                <div data-clear='clear' class="input input-2">Clear all</div>
                 <div class="input input-3">
                     <label for="range">Line width:</label>
                     <input
+                        data-range='line-width'
                         type="range"
                         name="range"
                         min="1"
