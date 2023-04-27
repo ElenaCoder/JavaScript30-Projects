@@ -33,7 +33,9 @@ console.log('Task 2: ', isEveryAdult);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
-// find the comment with the ID of 823423
+// 3. find the comment with the ID of 823423
+const comment = comments.find((comment) => comment.id === 823423);
+console.log('Task 3: ', comment);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
