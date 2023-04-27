@@ -1,5 +1,9 @@
 const canvas = document.querySelector('#draw');
 const ctx = canvas.getContext('2d');
+const colorButton = document.querySelector('[data-color="color"]');
+const clearButton = document.querySelector('[data-clear="clear"]');
+const rangeButton = document.querySelector('[data-range="line-width"]');
+
 canvas.width = window.innerWidth * 0.9;
 canvas.height = window.innerHeight * 0.7;
 ctx.strokeStyle = 'rgb(0,0,0)';
@@ -22,12 +26,29 @@ function draw(e) {
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
     [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
+}
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY];
 });
-canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false);
+
+function colorUpdatingHandler() {
+    ctx.strokeStyle = `${this.value}`;
+}
+
+function clearAllHandler() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function lineWidthHandler() {
+    ctx.lineWidth = this.value;
+}
+
+canvas.addEventListener('mouseup', () => (isDrawing = false));
+canvas.addEventListener('mouseout', () => (isDrawing = false));
+
+colorButton.addEventListener('input', colorUpdatingHandler);
+clearButton.addEventListener('click', clearAllHandler);
+rangeButton.addEventListener('input', lineWidthHandler);
