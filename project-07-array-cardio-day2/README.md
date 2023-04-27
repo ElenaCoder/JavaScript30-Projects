@@ -15,9 +15,7 @@ Array Cardio Day 2 is the seventh project in the JavaScript30 course. The goal o
  - Checking if every element in an array meets a certain condition using every()
  - Checking if at least one element in an array meets a certain condition using some()
  - Finding the index of an element in an array using findIndex()
- - Creating a new array by filtering elements from an existing array using filter()
- - Transforming an array by applying a function to each element using map()
- - Summing values in an array using reduce()
+ - Finding the first element in an array that meets a certain condition using find()
 
 ## Usage
 
