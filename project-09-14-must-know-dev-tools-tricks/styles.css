@@ -3,14 +3,25 @@
 }
 h1 {
     text-align: center;
+    color: #50394c;
 }
+
+p.button {
+    background-color: #50394c;
+    color: #f4e1d2;
+    font-weight: 600;
+}
+.smile {
+    background-color: #ffef96;
+}
+
 p {
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
     text-align: center;
     font-size: 18px;
-    background-color: rgb(196, 233, 252);
+    background-color: #f4e1d2;
     box-shadow: 1px 1px 5px gray;
     padding: 10px;
 }
