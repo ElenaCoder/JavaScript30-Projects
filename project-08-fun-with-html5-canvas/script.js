@@ -18,6 +18,7 @@ let lastY = 0;
 function draw(e) {
     //stop functionfrom running whenthey are not moused
     if (!isDrawing) return;
+    console.log('drawing');
     console.log(e);
     ctx.beginPath();
     // start from
@@ -50,22 +51,6 @@ canvas.addEventListener('mousedown', (e) => {
 canvas.addEventListener('mouseup', () => (isDrawing = false));
 canvas.addEventListener('mouseout', () => (isDrawing = false));
 
-// touch event listeners
-canvas.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    draw(e.changedTouches[0]); // use the first touch point
-});
-
-canvas.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    isDrawing = true;
-    [lastX, lastY] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY]; // use the first touch point
-});
-
-canvas.addEventListener('touchend', (e) => {
-    e.preventDefault();
-    isDrawing = false;
-});
 
 colorButton.addEventListener('input', colorUpdatingHandler);
 clearButton.addEventListener('click', clearAllHandler);
