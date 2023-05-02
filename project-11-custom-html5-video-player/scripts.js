@@ -11,13 +11,12 @@ const fullScreenButton = player.querySelector('.fullscreen');
 let isFullscreen = false;
 let storedControls = null;
 
-
 function togglePlay() {
-    video.paused ? video.play(): video.pause();
+    video.paused ? video.play() : video.pause();
 }
 
 function updateButton() {
-    const toggleIcon  = this.paused ? '►' : '❚ ❚';
+    const toggleIcon = this.paused ? '►' : '❚ ❚';
     toggle.textContent = toggleIcon;
 }
 
@@ -45,47 +44,43 @@ function scrub(e) {
 
 function toggleFullScreen() {
     if (!isFullscreen) {
-      // Store the videoControls element before removing it
-      storedControls = player.removeChild(videoControls);
-      player.requestFullscreen();
+        // Store the videoControls element before removing it
+        storedControls = player.removeChild(videoControls);
+        player.requestFullscreen();
     } else {
-      document.exitFullscreen();
+        document.exitFullscreen();
     }
-  }
+}
 
-  function exitFullScreen() {
+function exitFullScreen() {
     isFullscreen = false;
     // Reappend the storedControls element
     player.appendChild(storedControls);
-  }
+}
 
-
-
-
-
-video.addEventListener('click',togglePlay);
+video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 video.addEventListener('timeupdate', handleProgress);
 
-toggle.addEventListener('click',togglePlay);
+toggle.addEventListener('click', togglePlay);
 
-skipButtons.forEach(btn => btn.addEventListener('click', skip));
+skipButtons.forEach((btn) => btn.addEventListener('click', skip));
 
-inputRanges.forEach(range => range.addEventListener('click', handleRangeUpdate));
+inputRanges.forEach((range) =>
+    range.addEventListener('click', handleRangeUpdate),
+);
 
 let mouseDown = false;
 progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mouseDown && scrub(e));
-progress.addEventListener('mousedown', () => mouseDown = true);
-progress.addEventListener('mouseup', () => mouseDown = false);
-
-
+progress.addEventListener('mousedown', () => (mouseDown = true));
+progress.addEventListener('mouseup', () => (mouseDown = false));
 
 fullScreenButton.addEventListener('click', toggleFullScreen);
 document.addEventListener('fullscreenchange', () => {
-  isFullscreen = document.fullscreenElement !== null;
-  if (!isFullscreen) {
-    exitFullScreen();
-  }
+    isFullscreen = document.fullscreenElement !== null;
+    if (!isFullscreen) {
+        exitFullScreen();
+    }
 });
