@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Custom HTML5 Video Player</title>
         <link rel="stylesheet" href="./styles.css" />
-        <script src="./scripts.js"></script>
+        <script src="./scripts.js" defer></script>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -18,7 +18,7 @@
                 <video
                     class="player__video viewer"
                     src="./assets/video.mp4"
-                    autoplay
+
                 ></video>
 
                 <div class="player__controls">
@@ -50,7 +50,7 @@
                         « 15s
                     </button>
                     <button data-skip="15" class="player__button">15s »</button>
-                    <button class="player__button">
+                    <button class="player__button fullscreen">
                         <i class="fas fa-expand"></i>
                     </button>
                 </div>
