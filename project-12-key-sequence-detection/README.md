@@ -16,7 +16,6 @@ The Key Sequence Detection (KONAMI CODE) project is a fun project that detects a
  - CSS
  - JavaScript
  - **cornify.js** for the fun animations
- - **Unsplash** for the beautiful background image
 
 
 ## Demo
