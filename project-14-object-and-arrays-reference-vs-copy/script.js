@@ -30,6 +30,72 @@ console.groupEnd();
 
 //-----------------------------------
 
+console.groupCollapsed(`${'Task-2: arrays'}`);
+
+console.groupCollapsed(`${'Task-2.0: updating the referenced arrays'}`);
+// Let's say we have an array
+const names = ['Elena', 'Roman', 'Dima'];
+// and we want to make a copy of it.
+const family = names;
+console.log('arr1:', names);
+console.log('arr2:', family);
+// You might think we can just do something like this:
+family[3] = 'Viktor';
+console.log('arr1 was changed');
+// however what happens when we update that array?
+console.log('Updated arr1:', names);
+console.log('Affected arr2:', family);
+console.log('Problem: we have edited the original array too!');
+console.log("It's because that is an array reference, not an array copy.");
+console.log(
+    'Solution: split the reference between two arrays and modify them independently of each other',
+);
+console.groupEnd();
+
+console.groupCollapsed(`${'Task-2.1: option 1 to make a copy'}`);
+console.log('Spread operator: newArr =  [...originArr]:');
+const originalArray1 = [1, 2, 3, 4, 5];
+const newArray1 = [...originalArray1]; // create a copy of the original array
+originalArray1[0] = 'changed'; // modify the first value of the original array
+console.log('originalArray1', originalArray1); // output: ['changed', 2, 3, 4, 5]
+console.log('newArray1', newArray1); // output: [1, 2, 3, 4, 5]
+console.log('newArray1 is not affected after originalArray1 is changed');
+console.groupEnd();
+
+console.groupCollapsed(`${'Task-2.2: option 2 to make a copy'}`);
+console.log('method concat(): newArr = originalArr.concat():');
+const originalArray2 = [1, 2, 3, 4, 5];
+const newArray2 = originalArray2.concat(); // create a copy of the original array
+originalArray2[0] = 'changed'; // modify the first value of the original array
+console.log('originalArray2', originalArray2); // output: ['changed', 2, 3, 4, 5]
+console.log('newArray2', newArray2); // output: [1, 2, 3, 4, 5]
+console.log('newArray2 is not affected after originalArray2 is changed');
+console.groupEnd();
+
+console.groupCollapsed(`${'Task-2.3: option 3 to make a copy'}`);
+console.log('method slice(): newArr = originalArr.slice():');
+const originalArray3 = [1, 2, 3, 4, 5];
+const newArray3 = originalArray3.concat(); // create a copy of the original array
+originalArray3[0] = 'changed'; // modify the first value of the original array
+console.log('originalArray3', originalArray3); // output: ['changed', 2, 3, 4, 5]
+console.log('newArray3', newArray3); // output: [1, 2, 3, 4, 5]
+console.log('newArray3 is not affected after originalArray3 is changed');
+console.groupEnd();
+
+console.groupCollapsed(`${'Task-2.4: option 4 to make a copy'}`);
+console.log('newArr = Array.from(originalArr):');
+const originalArray4 = [1, 2, 3, 4, 5];
+const newArray4 = originalArray4.concat(); // create a copy of the original array
+originalArray4[0] = 'changed'; // modify the first value of the original array
+console.log('originalArray4', originalArray4); // output: ['changed', 2, 3, 4, 5]
+console.log('newArray4', newArray4); // output: [1, 2, 3, 4, 5]
+console.log('newArray4 is not affected after originalArray4 is changed');
+console.groupEnd();
+
+console.groupEnd();
+
+//-----------------------------------
+
 
 
 // The same thing goes for objects, let's say we have a person object
