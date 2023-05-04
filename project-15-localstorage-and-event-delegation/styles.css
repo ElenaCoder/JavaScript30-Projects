@@ -8,7 +8,7 @@ body {
 }
 
 :root {
-    --body-background: #d6d4e0;
+    --body-background: linear-gradient(35deg, #f2ae72 0%, #588c7e 48%, #abce96 100%);
     --form-background: rgba(255, 255, 255, 0.95);
 }
 
@@ -26,7 +26,6 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -40,6 +39,7 @@ svg {
 .wrapper {
     padding: 1.2rem;
     max-width: 350px;
+    border-radius: 1rem;
     background: var(--form-background);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
