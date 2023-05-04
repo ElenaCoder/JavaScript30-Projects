@@ -96,21 +96,112 @@ console.groupEnd();
 
 //-----------------------------------
 
-
-
 // The same thing goes for objects, let's say we have a person object
+console.groupCollapsed(`${'Task-3: objects'}`);
 
-// with Objects
+console.groupCollapsed(`${'Task-3.0: updating the referenced objects'}`);
 const person = {
-    name: 'Wes Bos',
-    age: 80,
+    name: 'Elena Golovanova',
+    age: 35,
+};
+const student = person; // and think we make a copy:
+console.log('person:', person);
+console.log('student:', student);
+student.language = 'javascript';
+console.log('student was changed');
+console.log('Updated student:', person);
+console.log('Affected person:', student);
+console.log('Problem: we have edited the original person object too!');
+console.log("It's because that is an object reference, not an object copy.");
+console.log(
+    'Solution: split the reference between two objects and modify them independently of each other',
+);
+console.groupEnd();
+
+console.groupCollapsed(`${'Task-3.1: option 1 to make a shallow object copy'}`);
+console.log('Shallow copy - newObj = Object.assign({}, originalObj) :');
+const person1 = {
+    name: 'Elena Golovanova',
+    age: 35,
+};
+const student1 = Object.assign({}, person1, {
+    name: 'Elena Golovanova',
+    age: 35,
+}); // and think we make a copy:
+console.log('person1:', person1);
+console.log('student1:', student1);
+student1.language = 'javascript';
+console.log('student1 was changed');
+console.log('Updated student1:', student1);
+console.log('Not affected person1:', person1);
+console.log('person1 is not affected after student1 is changed');
+console.log(
+    'We split the reference between two objects and can modify them independently of each other',
+);
+console.log('Note: this is only 1 level deep of copying = shallow copy');
+console.log(
+    'lodash has a cloneDeep method, but you should think twice before using it',
+);
+console.groupEnd();
+
+//---
+
+console.groupCollapsed(`${'Task-3.2: option 2 to make a shallow object copy'}`);
+console.log('Deep copy - newObj = JSON.parse(JSON.stringify(originalObj)):');
+const person2 = {
+    name: 'Elena Golovanova',
+    age: 35,
+};
+const student2 = JSON.parse(JSON.stringify(person2));
+console.log('person2:', person2);
+console.log('student2:', student2);
+student2.language = 'javascript';
+console.log('student2 was changed');
+console.log('Updated student2:', student2);
+console.log('Not affected person2:', person2);
+console.log('person2 is not affected after student2 is changed');
+console.log(
+    'We split the reference between two objects and can modify them independently of each other',
+);
+console.log('Note: this method creates a deep copy of the object = deep copy ');
+console.log(
+    'lodash has a cloneDeep method, but you should think twice before using it',
+);
+console.groupEnd();
+
+//---
+
+console.groupCollapsed(`${'Task-3.3: limitations of shallow object copy'}`);
+console.log('Shallow copy - newObj = Object.assign({}, originalObj):');
+
+const person3 = {
+  name: 'Elena Golovanova',
+  age: 35,
+  address: {
+    street: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+  },
 };
 
-// and think we make a copy:
+const student3 = Object.assign({}, person3);
+console.log('person3:', person3);
+console.log('student3:', student3);
+student3.address.street = '456 Elm St';// Modify the nested object in student2
+console.log('student3 was changed');
+console.log('Updated student3:', student3);
+console.log('Affected person3:', person3);
+console.log('person3 is affected after student3 is changed');
+console.log(
+  'We split the reference between two objects on level 1 of nesting, but still can not modify them independently',
+);
+console.log('Note: this is only 1 level deep of copying = shallow copy');
+console.log(
+  'lodash has a cloneDeep method, but you should think twice before using it',
+);
+console.groupEnd();
 
-// how do we take a copy instead?
 
-// We will hopefully soon see the object ...spread
 
-// Things to note - this is only 1 level deep - both for Arrays and Objects.
-//lodash has a cloneDeep method, but you should think twice before using it.
+
+console.groupEnd();
