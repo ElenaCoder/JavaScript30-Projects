@@ -1,5 +1,6 @@
 // start with strings, numbers and booleans
 console.groupCollapsed(`${'Task-1: strings, numbers and booleans'}`);
+
 console.groupCollapsed(`${'Task-1.1: strings'}`);
 let name1 = 'Elena';
 let name2 = name1;
@@ -8,6 +9,8 @@ name1 = 'Lena';
 console.log('name1 was changed');
 console.log('Updated name1:', name1, 'Not affected name2:', name2);
 console.groupEnd();
+
+//---
 
 console.groupCollapsed(`${'Task-1.2: numbers'}`);
 let num1 = 20;
@@ -18,6 +21,8 @@ console.log('num1 was changed');
 console.log('Updated num1:', num1, 'Not affected num2:', num2);
 console.groupEnd();
 
+//---
+
 console.groupCollapsed(`${'Task-1.3: booleans'}`);
 let boolean1 = 20;
 let boolean2 = boolean1;
@@ -26,6 +31,7 @@ boolean1 = 30;
 console.log('boolean1 was changed');
 console.log('Updated boolean1:', boolean1, 'Not affected boolean2:', boolean2);
 console.groupEnd();
+
 console.groupEnd();
 
 //-----------------------------------
@@ -52,6 +58,8 @@ console.log(
 );
 console.groupEnd();
 
+//---
+
 console.groupCollapsed(`${'Task-2.1: option 1 to make a copy'}`);
 console.log('Spread operator: newArr =  [...originArr]:');
 const originalArray1 = [1, 2, 3, 4, 5];
@@ -61,6 +69,8 @@ console.log('originalArray1', originalArray1); // output: ['changed', 2, 3, 4, 5
 console.log('newArray1', newArray1); // output: [1, 2, 3, 4, 5]
 console.log('newArray1 is not affected after originalArray1 is changed');
 console.groupEnd();
+
+//---
 
 console.groupCollapsed(`${'Task-2.2: option 2 to make a copy'}`);
 console.log('method concat(): newArr = originalArr.concat():');
@@ -72,6 +82,8 @@ console.log('newArray2', newArray2); // output: [1, 2, 3, 4, 5]
 console.log('newArray2 is not affected after originalArray2 is changed');
 console.groupEnd();
 
+//---
+
 console.groupCollapsed(`${'Task-2.3: option 3 to make a copy'}`);
 console.log('method slice(): newArr = originalArr.slice():');
 const originalArray3 = [1, 2, 3, 4, 5];
@@ -81,6 +93,8 @@ console.log('originalArray3', originalArray3); // output: ['changed', 2, 3, 4, 5
 console.log('newArray3', newArray3); // output: [1, 2, 3, 4, 5]
 console.log('newArray3 is not affected after originalArray3 is changed');
 console.groupEnd();
+
+//---
 
 console.groupCollapsed(`${'Task-2.4: option 4 to make a copy'}`);
 console.log('newArr = Array.from(originalArr):');
@@ -117,6 +131,8 @@ console.log(
     'Solution: split the reference between two objects and modify them independently of each other',
 );
 console.groupEnd();
+
+//---
 
 console.groupCollapsed(`${'Task-3.1: option 1 to make a shallow object copy'}`);
 console.log('Shallow copy - newObj = Object.assign({}, originalObj) :');
@@ -175,33 +191,30 @@ console.groupCollapsed(`${'Task-3.3: limitations of shallow object copy'}`);
 console.log('Shallow copy - newObj = Object.assign({}, originalObj):');
 
 const person3 = {
-  name: 'Elena Golovanova',
-  age: 35,
-  address: {
-    street: '123 Main St',
-    city: 'Anytown',
-    state: 'CA',
-  },
+    name: 'Elena Golovanova',
+    age: 35,
+    address: {
+        street: '123 Main St',
+        city: 'Anytown',
+        state: 'CA',
+    },
 };
 
 const student3 = Object.assign({}, person3);
 console.log('person3:', person3);
 console.log('student3:', student3);
-student3.address.street = '456 Elm St';// Modify the nested object in student2
+student3.address.street = '456 Elm St'; // Modify the nested object in student2
 console.log('student3 was changed');
 console.log('Updated student3:', student3);
 console.log('Affected person3:', person3);
 console.log('person3 is affected after student3 is changed');
 console.log(
-  'We split the reference between two objects on level 1 of nesting, but still can not modify them independently',
+    'We split the reference between two objects on level 1 of nesting, but still can not modify them independently',
 );
 console.log('Note: this is only 1 level deep of copying = shallow copy');
 console.log(
-  'lodash has a cloneDeep method, but you should think twice before using it',
+    'lodash has a cloneDeep method, but you should think twice before using it',
 );
 console.groupEnd();
-
-
-
 
 console.groupEnd();
