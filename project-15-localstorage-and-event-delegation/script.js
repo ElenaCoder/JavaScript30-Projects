@@ -42,10 +42,42 @@ function tuggleCheckbox(e) {
     const index = element.dataset.index;
     items[index].done = !items[index].done;
     localStorage.setItem('items', JSON.stringify(items));
-    // populateList(items, itemList);
+    populateList(items, itemList);
 }
 
 addItems.addEventListener('submit', addItem);
 itemList.addEventListener('click', tuggleCheckbox);
 
 populateList(items, itemList);
+
+//Addtional functionality - clearAll, checkAll and uncheckAll
+
+function handleClearAll() {
+    items.length = 0;
+    populateList(items, itemList);
+    localStorage.setItem('items', JSON.stringify(items));
+}
+
+function handleCheckAll() {
+    items.map((item) => {
+        item.done = true;
+    });
+    populateList(items, itemList);
+    localStorage.setItem('items', JSON.stringify(items));
+}
+
+function handleUncheckAll() {
+    items.map((item) => {
+        item.done = false;
+    });
+    populateList(items, itemList);
+    localStorage.setItem('items', JSON.stringify(items));
+}
+
+const clearAllBtn = document.querySelector('.clear-all');
+const checkAllBtn = document.querySelector('.check-all');
+const uncheckAllBtn = document.querySelector('.uncheck-all');
+
+clearAllBtn.addEventListener('click', handleClearAll);
+checkAllBtn.addEventListener('click', handleCheckAll);
+uncheckAllBtn.addEventListener('click', handleUncheckAll);
