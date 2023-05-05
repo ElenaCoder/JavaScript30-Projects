@@ -6,10 +6,12 @@ This is LocalStorage and Event Delegation project. The goal of this project is t
 
 ## Features
 
-- **Add tasks**: Users can add new tasks to the list by typing them in the input field and clicking the "+" button.
-- **Remove tasks**: Users can remove tasks from the list by clicking the "x" button next to each task.
-- **LocalStorage**: Tasks are stored in LocalStorage, so they persist even after the page is refreshed.
-- **Event delegation**: The app uses event delegation to handle the click events for adding and removing tasks, which improves performance and reduces code complexity.
+- Users can add new tasks to the list by typing them in the input field and clicking the "+ Add Item" button.
+- Users can remove all items from the list by clicking on Clear All button
+- Users can check all items by clicking on Check All button
+- Users can uncheck all items by clicking on Uncheck All button
+- Tasks are stored in LocalStorage, so they persist even after the page is refreshed.
+- The app uses event delegation to handle the click events for adding and removing tasks, which improves performance and reduces code complexity.
 
 
 ## Technologies used
