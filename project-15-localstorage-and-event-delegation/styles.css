@@ -8,7 +8,12 @@ body {
 }
 
 :root {
-    --body-background: linear-gradient(35deg, #f2ae72 0%, #588c7e 48%, #abce96 100%);
+    --body-background: linear-gradient(
+        35deg,
+        #f2ae72 0%,
+        #588c7e 48%,
+        #abce96 100%
+    );
     --form-background: rgba(255, 255, 255, 0.95);
 }
 
@@ -87,11 +92,49 @@ h2 {
 /* form */
 
 .add-items {
-    margin-top: 1.2rem;
+    margin: 1.2rem 0;
 }
 
 .add-items input {
     padding: 0.7rem;
     outline: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.add-items input[type='submit'] {
+    background-color: #f2ae72;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.add-items input[type='submit']:hover {
+    background-color: #e39b5c;
+}
+
+.add-items input[type='submit']:active {
+    background-color: #cd8b52;
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.control-buttons input {
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.4rem;
+    background-color: #d96459;
+    font-weight: 600;
+    transition: background-color 0.1s ease-in-out;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.control-buttons input:hover {
+    background-color: #c95c52;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.control-buttons input:active {
+    background-color: #ab5048;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
