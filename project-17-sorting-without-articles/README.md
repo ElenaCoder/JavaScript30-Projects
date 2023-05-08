@@ -19,6 +19,6 @@ This is Sorting without articles project. The goal of this project is to explore
 
 ## Demo
 
-You can check out a live demo of this project [here](https://elenacoder.github.io/JavaScript30-Projects/project-17-sorting-names-without-articles/).
+You can check out a live demo of this project [here](https://elenacoder.github.io/JavaScript30-Projects/project-17-sorting-without-articles/).
 
 ---
