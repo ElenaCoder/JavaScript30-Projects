@@ -1,0 +1,50 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+}
+
+body {
+    background: url('https://source.unsplash.com/featured/?dress,landscape/2000x2000');
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 500px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+#bands {
+    width: 300px;
+    background-color: aliceblue;
+    font-size: 1.3rem;
+    list-style: inside none;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0.5rem;
+    border: 7px solid black;
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+li {
+    border-bottom: 1px solid rgb(219, 216, 216);
+    padding: 0.4rem 0;
+}
+
+li:before {
+    content: '🎤';
+    margin-right: 10px;
+}
+
+#bands li:last-child {
+    border-bottom: 0;
+}
