@@ -190,7 +190,7 @@ function takePhoto() {
     link.setAttribute('download', 'pretty');
     // link.textContent = 'Download Image';
     link.innerHTML = `<img src='${data}' alt='Pretty Woman'/>`;
-    strip.insertBefore(link, strip.firstChild);
+    strip.appendChild(link);
 }
 
 getVideo();
