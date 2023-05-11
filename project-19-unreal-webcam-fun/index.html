@@ -10,33 +10,59 @@
     </head>
     <body>
         <div class="photobooth">
-            <div class="controls">
-                <button class="takePhoto">Take Photo</button>
+            <!-- <div class="controls">
                 <div class="rgb">
-                    <label for="rmin">Red Min:</label>
-                    <input type="range" min="0" max="255" name="rmin" />
-                    <label for="rmax">Red Max:</label>
-                    <input type="range" min="0" max="255" name="rmax" />
+                    <div class="redMin colorInput">
+                        <label for="rmin">Red Min:</label>
+                        <input type="range" min="0" max="255" name="rmin" />
+                    </div>
+                    <div class="redMax colorInput">
+                        <label for="rmax">Red Max:</label>
+                        <input type="range" min="0" max="255" name="rmax" />
+                    </div>
 
                     <br />
 
-                    <label for="gmin">Green Min:</label>
-                    <input type="range" min="0" max="255" name="gmin" />
-                    <label for="gmax">Green Max:</label>
-                    <input type="range" min="0" max="255" name="gmax" />
+                    <div class="greenMin colorInput">
+                        <label for="gmin">Green Min:</label>
+                        <input type="range" min="0" max="255" name="gmin" />
+                    </div>
+                    <div class="greenMax colorInput">
+                        <label for="gmax">Green Max:</label>
+                        <input type="range" min="0" max="255" name="gmax" />
+                    </div>
 
                     <br />
-
-                    <label for="bmin">Blue Min:</label>
-                    <input type="range" min="0" max="255" name="bmin" />
-                    <label for="bmax">Blue Max:</label>
-                    <input type="range" min="0" max="255" name="bmax" />
+                    <div class="blueMin colorInput">
+                        <label for="bmin">Blue Min:</label>
+                        <input type="range" min="0" max="255" name="bmin" />
+                    </div>
+                    <div class="blueMax colorInput">
+                        <label for="bmax">Blue Max:</label>
+                        <input type="range" min="0" max="255" name="bmax" />
+                    </div>
                 </div>
+            </div> -->
+
+            <div class="filters">
+                <button class="filter-btn no-btn">NoEffect</button>
+                <button class="filter-btn red-btn">Red</button>
+                <button class="filter-btn rgbSplit-btn">RgbSplit</button>
+                <button class="filter-btn grayscale-btn">Grayscale</button>
+                <button class="filter-btn sepia-btn">Sepia</button>
+                <button class="filter-btn vintage-btn">Vintage</button>
+                <button class="filter-btn glitch-btn">Glitch</button>
+                <button class="filter-btn popArt-btn">Pop Art</button>
             </div>
 
-            <canvas class="photo"></canvas>
-            <video class="player"></video>
-            <div class="strip"></div>
+            <div class="video-canva-wrapper">
+                <canvas class="photo" title="Filtered video"></canvas>
+                <video class="player" title="Initial video"></video>
+            </div>
+            <div class="takePhoto-wrapper">
+                <button class="takePhoto">Take Photo</button>
+                <div class="strip"></div>
+            </div>
         </div>
 
         <audio class="snap" src="./assets/snap.mp3" hidden></audio>
