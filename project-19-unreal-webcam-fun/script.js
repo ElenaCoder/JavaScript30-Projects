@@ -1,9 +1,12 @@
 const video = document.querySelector('.player');
 const canvas = document.querySelector('.photo');
+canvas.willReadFrequently = true;
 const context = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 const takePhotoBtn = document.querySelector('button.takePhoto');
+const filterButtons = document.querySelectorAll('.filter-btn');
+let intervalId = null;
 
 function getVideo() {
     navigator.mediaDevices
@@ -19,33 +22,41 @@ function getVideo() {
         });
 }
 
-function paintToCanvas(filterCallback) {
+function paintToCanvas(filterEffect) {
+    // clear any previous interval
+    clearInterval(intervalId);
+
     const width = video.videoWidth;
     const height = video.videoHeight;
     canvas.width = width;
     canvas.height = height;
 
-    setInterval(() => {
+    intervalId = setInterval(() => {
         context.drawImage(video, 0, 0, width, height);
-
-        // take the pixel out
-        let pixels = context.getImageData(0, 0, width, height);
-
-        // mess with them
-        // pixels = redEffect(pixels);
-        // pixels = rgbSplit(pixels);
-        // pixels = greenScreen(pixels);
-        // pixels = grayscale(pixels);
-        pixels = filterCallback(pixels);
-
-        // put them back
-        context.putImageData(pixels, 0, 0);
+        let pixels = context.getImageData(0, 0, width, height); // take the pixel out
+        pixels = filterEffect(pixels); // mess with them
+        context.putImageData(pixels, 0, 0); // put them back
     }, 16);
 }
 
-function noEffect(pixels) {
-    return pixels;
+// Filters start
+
+function noEffect() {
+    // clear any previous interval
+    clearInterval(intervalId);
+
+    const width = video.videoWidth;
+    const height = video.videoHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    intervalId = setInterval(() => {
+        context.drawImage(video, 0, 0, width, height);
+        let pixels = context.getImageData(0, 0, width, height); // take the pixel out
+        context.putImageData(pixels, 0, 0); // put them back
+    }, 16);
 }
+
 function redEffect(pixels) {
     for (let i = 0; i < pixels.data.length; i += 4) {
         pixels.data[i + 0] = pixels.data[i + 0] + 100; // red
@@ -55,7 +66,7 @@ function redEffect(pixels) {
     return pixels;
 }
 
-function rgbSplit(pixels) {
+function rgbSplitEffect(pixels) {
     for (let i = 0; i < pixels.data.length; i += 4) {
         pixels.data[i - 150] = pixels.data[i + 0]; // red
         pixels.data[i + 400] = pixels.data[i + 1]; // green
@@ -64,7 +75,7 @@ function rgbSplit(pixels) {
     return pixels;
 }
 
-function greenScreen(pixels) {
+function greenScreenEffect(pixels) {
     const levels = {};
 
     document.querySelectorAll('.rgb input').forEach((input) => {
@@ -93,6 +104,79 @@ function greenScreen(pixels) {
     return pixels;
 }
 
+function grayscaleEffect(pixels) {
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        const average =
+            (pixels.data[i] + pixels.data[i + 1] + pixels.data[i + 2]) / 3;
+        pixels.data[i] = average;
+        pixels.data[i + 1] = average;
+        pixels.data[i + 2] = average;
+    }
+    return pixels;
+}
+
+function sepiaEffect(pixels) {
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        const r = pixels.data[i];
+        const g = pixels.data[i + 1];
+        const b = pixels.data[i + 2];
+
+        pixels.data[i] = r * 0.393 + g * 0.769 + b * 0.189;
+        pixels.data[i + 1] = r * 0.349 + g * 0.686 + b * 0.168;
+        pixels.data[i + 2] = r * 0.272 + g * 0.534 + b * 0.131;
+    }
+    return pixels;
+}
+
+function vintageEffect(pixels) {
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        const r = pixels.data[i];
+        const g = pixels.data[i + 1];
+        const b = pixels.data[i + 2];
+
+        pixels.data[i] = Math.min(255, 0.393 * r + 0.769 * g + 0.189 * b + 40);
+        pixels.data[i + 1] = Math.min(
+            255,
+            0.349 * r + 0.686 * g + 0.168 * b + 20,
+        );
+        pixels.data[i + 2] = Math.min(
+            255,
+            0.272 * r + 0.534 * g + 0.131 * b - 10,
+        );
+    }
+    return pixels;
+}
+
+function glitchEffect(pixels) {
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        // Randomly shift the RGB values of each pixel
+        pixels.data[i] = pixels.data[i + Math.floor(Math.random() * 10) - 5];
+        pixels.data[i + 1] =
+            pixels.data[i + 1 + Math.floor(Math.random() * 10) - 5];
+        pixels.data[i + 2] =
+            pixels.data[i + 2 + Math.floor(Math.random() * 10) - 5];
+
+        // Add some static noise to the alpha channel
+        pixels.data[i + 3] += Math.floor(Math.random() * 10) - 5;
+    }
+    return pixels;
+}
+
+function popArtEffect(pixels) {
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        // Increase the brightness of each color channel
+        pixels.data[i] = Math.min(255, pixels.data[i] + 100);
+        pixels.data[i + 1] = Math.min(255, pixels.data[i + 1] + 50);
+        pixels.data[i + 2] = Math.min(255, pixels.data[i + 2] + 150);
+
+        // Set the alpha channel to maximum
+        pixels.data[i + 3] = 255;
+    }
+    return pixels;
+}
+
+// Filters end
+
 function takePhoto() {
     // played thesound
     snap.currentTime = 0;
@@ -111,5 +195,15 @@ function takePhoto() {
 
 getVideo();
 
-video.addEventListener('canplay', () => paintToCanvas(noEffect));
+video.addEventListener('canplay', noEffect);
 takePhotoBtn.addEventListener('click', takePhoto);
+
+// Add event listeners to UI elements that trigger the filter change
+filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const effectName = button.classList[1].split('-')[0] + 'Effect';
+        //   clearInterval(intervalId); // stop the previously applied filter
+        noEffect();
+        paintToCanvas(window[effectName]);
+    });
+});
