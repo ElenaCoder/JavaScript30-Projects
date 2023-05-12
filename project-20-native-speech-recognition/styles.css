@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: #a7bc5b;
+    /* background: #d1d969; */
     background: linear-gradient(35deg, #ebe03f 0%, #a2b13e 48%, #b8d25c 100%);
     background-size: cover;
     min-height: 100vh;
@@ -52,6 +52,15 @@ svg:hover {
     text-shadow: 1px 1px 2px #ccc;
     background-color: rgba(239, 231, 7, 0.3);
     padding: 0.2rem 0.5rem;
+}
+
+.project-magic span {
+    font-weight: 900;
+
+}
+
+.project-magic{
+    background-color: rgba(239, 231, 7, 0.3);
 }
 
 p {
