@@ -63,7 +63,7 @@ function toggleSubtitles() {
 
 function handleClearAll() {
     const paragraphs = words.querySelectorAll('p');
-    for (let i = 1; i < paragraphs.length; i++) {
+    for (let i = 2; i < paragraphs.length; i++) {
       words.removeChild(paragraphs[i]);
     }
 }
