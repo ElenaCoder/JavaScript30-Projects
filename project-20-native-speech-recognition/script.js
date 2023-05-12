@@ -28,7 +28,10 @@ recognition.addEventListener('result', (e) => {
     }
     // Check if the transcript includes the secret word'
     if (transcript.includes(`${secretCode}`)) {
-        document.body.style.background = 'linear-gradient(35deg, #b8d25c 0%, #a2b13e 48%, #ebe03f 100%)';
+        const svg = document.querySelector('svg');
+        document.body.style.background = 'linear-gradient(35deg, #3fa1eb 0%, #a2b13e 48%, #d25cc4 100%)';
+        svg.style.fill = 'white';
+
     }
 });
 
