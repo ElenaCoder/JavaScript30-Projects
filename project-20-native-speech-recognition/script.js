@@ -12,7 +12,7 @@ let p = document.createElement('p');
 const words = document.querySelector('.words');
 words.appendChild(p);
 
-
+const secretCode = 'hello';
 
 recognition.addEventListener('result', (e) => {
     const transcript = Array.from(e.results)
@@ -25,6 +25,10 @@ recognition.addEventListener('result', (e) => {
     if (e.results[0].isFinal && isListening) {
         p = document.createElement('p');
         words.appendChild(p);
+    }
+    // Check if the transcript includes the secret word'
+    if (transcript.includes(`${secretCode}`)) {
+        document.body.style.background = '#d1d969';
     }
 });
 
