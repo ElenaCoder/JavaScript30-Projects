@@ -1,20 +1,70 @@
-const button = document.querySelector('.subtitle-btn');
+window.SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
 
-button.addEventListener('click', function() {
-  if (button.classList.contains('selected')) {
-    button.classList.remove('selected');
-    button.style.backgroundColor = '#fff';
-    button.style.color = 'rgb(5,5,5)';
-    button.style.boxShadow = 'none';
-  } else {
-    button.classList.add('selected');
-    button.style.backgroundColor = 'rgb(5,5,5)';
-    button.style.color = '#fff';
-    button.style.boxShadow = '4px 4px 5px rgba(0, 0, 0, 0.8)';
-  }
+const subtitleButton = document.querySelector('.subtitle-btn');
+const clearAllButton = document.querySelector('.clear-all');
+const recognition = new SpeechRecognition();
+recognition.interimResult = true;
+recognition.lang = 'en-US';
+let isListening = false;
+
+let p = document.createElement('p');
+const words = document.querySelector('.words');
+words.appendChild(p);
+
+
+
+recognition.addEventListener('result', (e) => {
+    const transcript = Array.from(e.results)
+        .map((result) => result[0])
+        .map((result) => result.transcript)
+        .join();
+    // console.log(transcript);
+    p.textContent = transcript;
+
+    if (e.results[0].isFinal && isListening) {
+        p = document.createElement('p');
+        words.appendChild(p);
+    }
 });
 
+recognition.addEventListener('end', () => {
+    if (isListening) {
+        recognition.start();
+    }
+});
+
+// recognition.start();
+
+function toggleSubtitles() {
+    if (subtitleButton.classList.contains('selected')) {
+        recognition.stop();
+        isListening = !isListening;
+
+        subtitleButton.classList.remove('selected');
+        subtitleButton.style.backgroundColor = '#fff';
+        subtitleButton.style.color = 'rgb(5,5,5)';
+        subtitleButton.style.boxShadow = 'none';
+    } else {
+        recognition.start();
+        isListening = !isListening;
+
+        subtitleButton.classList.add('selected');
+        subtitleButton.style.backgroundColor = 'rgb(5,5,5)';
+        subtitleButton.style.color = '#fff';
+        subtitleButton.style.boxShadow = '4px 4px 5px rgba(0, 0, 0, 0.8)';
+    }
+}
 
 
+function handleClearAll() {
+    const paragraphs = words.querySelectorAll('p');
+    for (let i = 1; i < paragraphs.length; i++) {
+      words.removeChild(paragraphs[i]);
+    }
+}
+
+subtitleButton.addEventListener('click', toggleSubtitles);
+clearAllButton.addEventListener('click', handleClearAll);
 
 
