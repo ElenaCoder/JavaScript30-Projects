@@ -1,22 +1,18 @@
 const arrow = document.querySelector('.arrow');
 const speed = document.querySelector('.speed-value');
-
-navigator.geolocation.watchPosition(
-    (data) => {
-        // console.log(data);
-        speed.textContent = data.coords.speed;
-        arrow.style.transform = `rotate(${data.coords.heading}deg)`;
-    },
-    (err) => {
-        console.error(err);
-    },
-);
+const latitude = document.getElementById('latitude');
+const longitude = document.getElementById('longitude');
 
 const successCallback = (position) => {
-    const latitude = position.coords.latitude.toFixed(2);
-    const longitude = position.coords.longitude.toFixed(2);
-    document.getElementById('latitude').textContent = latitude;
-    document.getElementById('longitude').textContent = longitude;
+    const lat = position.coords.latitude.toFixed(4);
+    const long = position.coords.longitude.toFixed(4);
+    const spd = position.coords.speed || 0;
+
+    latitude.textContent = lat;
+    longitude.textContent = long;
+    speed.textContent = spd;
+
+    arrow.style.transform = `rotate(${position.coords.heading}deg)`;
 };
 
 const errorCallback = (error) => {
