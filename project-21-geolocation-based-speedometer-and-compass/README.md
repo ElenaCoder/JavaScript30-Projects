@@ -9,7 +9,6 @@ This is Geolocation based Speedometer and Compass project. The goal of this proj
 
 - Displays the user's current latitude and longitude
 - Displays the user's current speed (in km/h)
-- Displays a Google Map showing the user's current location
 - Allows the user to watch their location in real-time
 - Uses the Geolocation API to get the user's location
 
