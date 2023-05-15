@@ -59,7 +59,7 @@ html {
   /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
 
   .geolocation {
-    width: 200px;
+    max-width: 300px;
   }
   .geolocation p {
     font-size: 18px;
