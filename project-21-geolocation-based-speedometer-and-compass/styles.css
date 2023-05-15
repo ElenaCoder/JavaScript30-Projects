@@ -42,18 +42,21 @@ html {
   }
 
   svg.arrow {
-    /* width: 150px; */
+    width: 90px;
     overflow: hidden;
     transition: all 0.2s;
     transform: rotate(0deg);
     display: inline-block;
     align-self: center;
+    margin-right: 1rem;
   }
+
+
 
   h1 {
     color: rgb(23, 66, 132);
     font-weight: 900;
-    font-size: 6rem;
+    font-size: 5rem;
     display: flex;
     align-items: center;
     margin: 0;
