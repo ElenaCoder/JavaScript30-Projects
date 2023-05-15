@@ -6,6 +6,7 @@ html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
         sans-serif;
     font-size: 16px;
+    line-height: 1.5;
 }
 
 *,
@@ -15,6 +16,7 @@ html {
 }
 
 body {
+padding-top: 2rem;
     margin: 0; /* Important! */
     min-height: 100vh;
     background: linear-gradient(
@@ -43,9 +45,13 @@ body {
     margin: 0 auto;
     max-width: 500px;
     font-size: 2rem;
-    line-height: 2;
     position: relative;
+    background-color: rgb(240, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
 }
+
 nav {
     margin: 2rem 0;
 }
@@ -63,25 +69,31 @@ nav {
     margin: 0;
     color: black;
     padding: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 a {
     text-decoration: none;
     color: black;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 1rem;
-    padding: 0.3rem;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 0.3rem;
+    padding: 0.1rem;
 }
 
 .highlight {
-    transition: all 0.2s;
-    border-bottom: 2px solid white;
+    transition: all 0.1s;
+    border-bottom: 2px solid rgb(252, 239, 3);
     position: absolute;
     top: 0;
-    background: white;
+    background: rgb(252, 239, 3);
     left: 0;
     z-index: -1;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
     display: block;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0);
+}
+
+.content p {
+    margin-bottom: 1rem;
 }
