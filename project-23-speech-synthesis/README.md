@@ -10,9 +10,9 @@ This is Speech Synthesis project which is a simple web app that allows users to 
 - Select from a variety of voices to speak the text.
 - Adjust the rate of speech.
 - Adjust the pitch of speech.
-- Type in custom text or choose from pre-defined options.
-- Pause and resume speech playback.
-- Stop speech playback and start over.
+- Adjust the volume of speech
+- Input text and convert it into speech.
+- Play and stop speech synthesis
 
 ## Technologies used
 
