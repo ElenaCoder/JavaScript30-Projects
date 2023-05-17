@@ -12,6 +12,11 @@ body {
     margin: 0;
 }
 
+body.fixed-nav nav {
+    position: fixed;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
 *,
 *:before,
 *:after {
@@ -21,7 +26,7 @@ body {
 header {
     text-align: center;
     height: 50vh;
-    background: url(https://source.unsplash.com/GKN6rpDr0EI/960x640) bottom
+    background: url(https://fastly.picsum.photos/id/648/960/640.jpg?hmac=SfW-Ar2LuygjnucMGVcRLXZNdMStSF2GiDwKBCWeHUg) bottom
         center no-repeat;
     background-size: cover;
     display: flex;
@@ -60,17 +65,22 @@ nav li {
 }
 
 li.logo {
-    max-width: 0;
-    overflow: hidden;
+    max-width: 0; /* to hide the li with class="logo"*/
+    overflow: hidden; /* to hide the li with class="logo"*/
+
     background: white;
     transition: all 0.5s;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 li.logo a {
     color: black;
 }
+
+.fixed-nav li.logo {
+    max-width: 200px; /* to unhide the li with class="logo"*/
+  }
 
 nav a {
     text-decoration: none;
@@ -90,6 +100,10 @@ nav a {
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
     transform: scale(0.98);
     transition: transform 0.5s;
+}
+
+.fixed-nav .site-wrap{
+    transform: scale(1);
 }
 
 img.align-left {
