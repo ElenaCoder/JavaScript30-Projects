@@ -6,7 +6,8 @@ const longitude = document.getElementById('longitude');
 const successCallback = (position) => {
     const lat = position.coords.latitude.toFixed(4);
     const long = position.coords.longitude.toFixed(4);
-    const spd = position.coords.speed.toFixed(1) || 0;
+    const spd = position.coords.speed ? position.coords.speed.toFixed(1) : 0;
+    console.log(spd);
 
     latitude.textContent = lat;
     longitude.textContent = long;
