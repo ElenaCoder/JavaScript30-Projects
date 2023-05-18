@@ -21,7 +21,6 @@
             body {
                 margin: 0;
                 padding: 0;
-
             }
 
             h1 {
@@ -74,7 +73,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="body">
         <h1>
             Project-25: This project explores event capture, propagation,
             bubbling, and the "once" flag in JavaScript event handling
@@ -91,6 +90,34 @@
 
         <button>BUTTON</button>
 
-        <script></script>
+        <script>
+            const divs = Array.from(document.querySelectorAll('div')).slice(1);
+            const button = document.querySelector('button');
+            // console.log(divs);
+
+            function logText(e) {
+                console.log(this.classList.value);
+                // e.stopPropagation(); // stop bubbling
+            }
+
+            divs.forEach((div) =>
+                div.addEventListener('click', logText, {
+                    capture: false,
+                    // once:true
+                }),
+            );
+
+            //once:true === div.removeEventListener('click', logText)
+            document.body.addEventListener('click', logText);
+            button.addEventListener(
+                'click',
+                () => {
+                    console.log('Click!');
+                },
+                {
+                    once: true,
+                },
+            );
+        </script>
     </body>
 </html>
