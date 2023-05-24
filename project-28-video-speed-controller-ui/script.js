@@ -4,26 +4,25 @@ const video = document.querySelector('.flex');
 const minSpeed = 0.4;
 const maxSpeed = 4;
 
-
 function calculatePlaybackRate(event) {
-    // event.pageY - provides the position relative to the entire document
-    // this.offsetTop - provides the distance relative to the offset parent
-    // this.offsetHeight - retrieves the height of the current element in pixels
+    // event.pageX - provides the position relative to the entire document
+    // this.offsetLeft - provides the horizontal distance between the element and its offset parent
+    // this.offsetWidth - retrieves the width of the current element in pixels.
 
-    const y = event.pageY - speed.offsetTop;
-    const speedHeight = speed.offsetHeight;
-    const percentage = y / speedHeight;
+    const x = event.pageX - speed.offsetLeft;
+    const speedWidth = speed.offsetWidth;
+    const percentage = x / speedWidth;
     const playbackRate = percentage * (maxSpeed - minSpeed) + minSpeed;
 
     return playbackRate;
 }
 
 function renderPlaybackRate(playbackRate) {
+    const widthPercentage =
+        ((playbackRate - minSpeed) / (maxSpeed - minSpeed)) * 100;
+    const width = `${widthPercentage}%`;
 
-    const heightPercentage = (playbackRate - minSpeed) / (maxSpeed - minSpeed) * 100;
-    const height = `${heightPercentage}%`;
-
-    bar.style.height = height;
+    bar.style.width = width;
     bar.textContent = `${playbackRate.toFixed(1)}x`;
     video.playbackRate = playbackRate;
 }
