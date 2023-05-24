@@ -16,34 +16,40 @@ body {
     width: 850px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 video {
-    box-shadow: 0 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.3);
+    align-self: center;
 }
 
 .speed {
-    width: 30px;
+    width: 250px;
+    height: 30px;
     background: #efefef;
     /* flex: 1; */
     display: flex;
     align-items: flex-start;
-    margin: 30px;
+    /* margin: 30px; */
+    margin-top: 30px;
     border-radius: 50px;
-    box-shadow: 0 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    align-self: center;
 }
 
 .speed-bar {
-    width: 100%;
+    width: 16%;
+    height: 30px;
     /* background: linear-gradient(-170deg, #2376ae 0%, #c16ecf 100%); */
-    background-color:  rgb(64, 200, 105);
+    background-color: rgb(64, 200, 105);
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2px;
     color: white;
-    height: 16.3%;
+    /* height: 16.3%; */
     font-weight: 600;
 }
