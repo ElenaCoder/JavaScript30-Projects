@@ -27,11 +27,25 @@ function timer(seconds) {
 }
 
 function displayTimeLeft(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remaiderSeconds = seconds % 60;
-    const display = `${minutes}:${
-        remaiderSeconds < 10 ? '0' : ''
-    }${remaiderSeconds}`;
+    let display;
+    if (seconds > 86400) {
+        display = 'Please enter a duration within 24 hours.';
+        timerDisplay.textContent = display;
+        timerDisplay.style.fontSize = '1.2rem';
+        timerDisplay.style.color = 'red';
+        timerDisplay.style.textShadow = 'none';
+        timerDisplay.style.fontWeight = '900';
+        return;
+    }
+
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+
+    const formattedHours = String(hours).padStart(2, '0');
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+    display = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
     timerDisplay.textContent = display;
     document.title = display;
 }
