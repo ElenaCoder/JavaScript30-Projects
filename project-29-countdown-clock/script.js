@@ -19,7 +19,6 @@ function timer(seconds) {
             clearInterval(countDown);
             playAlarmSound(); // Call the function to play the alarm sound
             return;
-            return;
         }
 
         displayTimeLeft(secondsLeft);
@@ -29,14 +28,11 @@ function timer(seconds) {
 function displayTimeLeft(seconds) {
     let display;
     if (seconds > 86400) {
-        display = 'Please enter a duration within 24 hours.';
-        timerDisplay.textContent = display;
-        timerDisplay.style.fontSize = '1.2rem';
-        timerDisplay.style.color = 'red';
-        timerDisplay.style.textShadow = 'none';
-        timerDisplay.style.fontWeight = '900';
+        displayErrorMessage();
         return;
     }
+
+    clearErrorMessage();
 
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -49,6 +45,21 @@ function displayTimeLeft(seconds) {
     timerDisplay.textContent = display;
     document.title = display;
 }
+
+function displayErrorMessage() {
+    timerDisplay.textContent = 'Please enter a duration within 24 hours.';
+    timerDisplay.style.fontSize = '1.2rem';
+    timerDisplay.style.color = 'red';
+    timerDisplay.style.textShadow = 'none';
+    timerDisplay.style.fontWeight = '900';
+  }
+
+  function clearErrorMessage() {
+    timerDisplay.style.fontSize = '4rem';
+    timerDisplay.style.color = 'var(--color1)';
+    timerDisplay.style.textShadow = '2px 2px var(--color4)';
+    timerDisplay.style.fontWeight = '100';
+  }
 
 function displayEndTime(timestamp) {
     end = new Date(timestamp);
