@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('[data-time]');
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time > span');
+const alarmSound = new Audio('./assets/alarm.mp3');
 let countDown;
 
 function timer(seconds) {
@@ -16,6 +17,8 @@ function timer(seconds) {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         if (secondsLeft < 0) {
             clearInterval(countDown);
+            playAlarmSound(); // Call the function to play the alarm sound
+            return;
             return;
         }
 
@@ -37,12 +40,16 @@ function displayEndTime(timestamp) {
     end = new Date(timestamp);
     const hours = end.getHours();
     const minutes = end.getMinutes();
-    endTime.textContent = `${hours}:${minutes}`;
+    endTime.textContent = `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 }
 
 function startTimer() {
     const seconds = parseInt(this.dataset.time);
     timer(seconds);
+}
+
+function playAlarmSound() {
+    alarmSound.play(); // Play the alarm sound
 }
 
 buttons.forEach((button) => button.addEventListener('click', startTimer));
