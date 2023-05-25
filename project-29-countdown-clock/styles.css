@@ -33,7 +33,7 @@ body {
 
 .timer {
     width: 370px;
-    height: 50vh;
+    height: 70vh;
     background-color: var(--color2);
     border-radius: 1rem;
     box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.8);
@@ -44,7 +44,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--color1);
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     border-radius: 1rem 1rem 0 0;
 }
 
