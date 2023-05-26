@@ -7,10 +7,12 @@ This is Countdown Clock project. The goal of this project is to explore how to b
 
 ## Features
 
-- Set a specific countdown time using the input fields.
+- Set a countdown timer for a specific duration using the input fields and top buttons.
 - Start the countdown timer.
 - Display the remaining time in the format HH:MM:SS.
 - Sound an alarm when the countdown reaches zero.
+- Toggle the alarm on/off
+
 
 ## Technologies used
 
