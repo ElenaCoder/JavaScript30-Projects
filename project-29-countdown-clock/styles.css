@@ -44,7 +44,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--color1);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     border-radius: 1rem 1rem 0 0;
 }
 
@@ -79,12 +79,12 @@ body {
     border-radius: 0 1rem 0 0;
 }
 
-button:hover {
+button.timer__button:hover {
     background-color: var(--color4-hover);
     color: #fff;
 }
 
-button:active {
+button.timer__button:active {
     color: var(--color3);
     box-shadow: 2px 2px 3px var(--color4);
 }
@@ -111,6 +111,27 @@ button:active {
     /* Input focus styles */
     border-color: var(--color3);
     box-shadow: 0 0 5px var(--color3);
+}
+
+.alarm-button {
+    background-color: var(--color4);
+    color: var(--color1);
+    cursor: pointer;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+margin-bottom: 10px;
+}
+
+.active {
+    color: var(--color3);
+    /* box-shadow: 2px 2px 3px var(--color4); */
+}
+
+.fa-bell {
+    padding: 0 0.28rem;
 }
 
 .display {
