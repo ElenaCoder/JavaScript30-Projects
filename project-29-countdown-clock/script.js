@@ -2,7 +2,10 @@ const buttons = document.querySelectorAll('[data-time]');
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time > span');
 const alarmSound = new Audio('./assets/alarm.mp3');
+const alarmOnButton = document.getElementById('alarmOnButton');
+const alarmOffButton = document.getElementById('alarmOffButton');
 let countDown;
+let isAlarmOn = true; // Track the state of the alarm
 
 function timer(seconds) {
     // clear any existing timers
@@ -17,7 +20,9 @@ function timer(seconds) {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         if (secondsLeft < 0) {
             clearInterval(countDown);
-            playAlarmSound(); // Call the function to play the alarm sound
+            if (isAlarmOn) {
+                playAlarmSound(); // Call the function to play the alarm sound if it's turned on
+            }
             return;
         }
 
@@ -52,14 +57,14 @@ function displayErrorMessage() {
     timerDisplay.style.color = 'red';
     timerDisplay.style.textShadow = 'none';
     timerDisplay.style.fontWeight = '900';
-  }
+}
 
-  function clearErrorMessage() {
+function clearErrorMessage() {
     timerDisplay.style.fontSize = '4rem';
     timerDisplay.style.color = 'var(--color1)';
     timerDisplay.style.textShadow = '2px 2px var(--color4)';
     timerDisplay.style.fontWeight = '100';
-  }
+}
 
 function displayEndTime(timestamp) {
     end = new Date(timestamp);
@@ -77,6 +82,19 @@ function playAlarmSound() {
     alarmSound.play(); // Play the alarm sound
 }
 
+function toggleAlarmOn() {
+    isAlarmOn = true;
+    alarmOnButton.classList.add('active');
+    alarmOffButton.classList.remove('active');
+}
+
+function toggleAlarmOff() {
+    isAlarmOn = false;
+    alarmSound.pause();
+    alarmOnButton.classList.remove('active');
+    alarmOffButton.classList.add('active');
+}
+
 buttons.forEach((button) => button.addEventListener('click', startTimer));
 document.customForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -85,3 +103,6 @@ document.customForm.addEventListener('submit', function (e) {
     this.reset();
     timer(seconds);
 });
+
+alarmOnButton.addEventListener('click', toggleAlarmOn);
+alarmOffButton.addEventListener('click', toggleAlarmOff);
