@@ -16,6 +16,9 @@ let timeUp = false;
 let score = 0;
 let gameTimeout;
 
+// Sound effects
+const gameOverSound = new Audio('./assets/game-over.wav');
+
 function giveRandomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -71,6 +74,7 @@ function updateCountdown() {
         clearInterval(countdownInterval);
         countdownElement.textContent = '10sec';
         showUserMessage(isWinner(score));
+        gameOverSound.play(); // Play game over sound effect
     }
 }
 
