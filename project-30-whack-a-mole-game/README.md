@@ -11,8 +11,7 @@ This is Whack A Mole Game project. The objective of the game is to whack the app
 - Random mole appearances with different durations
 - Countdown timer to keep track of the remaining time
 - Score counter to display the current score
-- Sound effects for successful hits and game over
-- Responsive design for different screen sizes
+- Sound effects for game over
 
 
 ## Technologies used
