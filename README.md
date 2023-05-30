@@ -13,7 +13,7 @@ For each project, the provided template was utilized as a starting point and fur
 The following projects are included in this repository:
 
 -   Project 1: [Drum Kit](https://elenacoder.github.io/JavaScript30-Projects/project-01-JavaScript-Drum-Kit/)
--   Project 2: [Clock](ttps://elenacoder.github.io/JavaScript30-Projects/project-02-CSS-JS-Clock/)
+-   Project 2: [Clock](https://elenacoder.github.io/JavaScript30-Projects/project-02-CSS-JS-Clock/)
 -   Project 3: [CSS Variables](https://elenacoder.github.io/JavaScript30-Projects/project-03-playing-with-CSS-Variables-and-JS/)
 -   Project 4: [Array Cardio Day 1](https://elenacoder.github.io/JavaScript30-Projects/project-04-array-cardio-day1/)
 -   Project 5: [Flex Panel Gallery](https://elenacoder.github.io/JavaScript30-Projects/project-05-Flex-Panels-Image-Gallery/)
