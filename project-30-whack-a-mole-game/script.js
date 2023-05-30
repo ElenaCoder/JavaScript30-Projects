@@ -3,9 +3,13 @@ const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('.start-button');
-const gameTime = 10000;
-const minIntervalTime = 200;
-const maxIntervalTime = 1000;
+const countdownElement = document.querySelector('.down-counter');
+const gameResultElement = document.querySelector('.game-result');
+let gameTime = 10000;
+const minIntervalTime = 500;
+const maxIntervalTime = 2000;
+const minScoreToWin = 2;
+let countdownInterval;
 
 let lastHole;
 let timeUp = false;
@@ -41,17 +45,48 @@ function startGame(e) {
     scoreBoard.textContent = 0;
     score = 0;
     timeUp = false;
+    gameTime = 10000; // Reset gameTime value for each game
+    clearUserMessage();
     peep();
     gameTimeout = setTimeout(() => {
         timeUp = true;
         clearTimeout(gameTimeout);
     }, gameTime);
+
+    gameTime = Math.ceil(gameTime / 1000); // Convert milliseconds to seconds
+    countdownElement.textContent = `${gameTime}sec`;
+    countdownInterval = setInterval(updateCountdown, 1000);
 }
 
 function bonk(e) {
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
+}
+
+function updateCountdown() {
+    gameTime -= 1;
+    countdownElement.textContent = `${gameTime}sec`;
+    if (gameTime <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.textContent = '10sec';
+        showUserMessage(isWinner(score));
+    }
+}
+
+function isWinner(result) {
+    if (result < minScoreToWin) return false;
+    return true;
+}
+
+function showUserMessage(result = false) {
+    gameResultElement.textContent = result
+        ? "Congratulations, you're the champion!"
+        : 'Better luck next time, keep trying!';
+}
+
+function clearUserMessage() {
+    gameResultElement.textContent = '';
 }
 
 startButton.addEventListener('click', startGame);
