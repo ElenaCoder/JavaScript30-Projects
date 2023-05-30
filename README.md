@@ -27,7 +27,7 @@ The following projects are included in this repository:
 -   Project 13: [Slide in on Scroll](https://elenacoder.github.io/JavaScript30-Projects/project-13-slide-in-on-scroll/)
 -   Project 14: [JavaScript References vs. Copying](https://elenacoder.github.io/JavaScript30-Projects/project-14-object-and-arrays-reference-vs-copy/)
 -   Project 15: [LocalStorage](https://elenacoder.github.io/JavaScript30-Projects/project-15-localstorage-and-event-delegation/')
--   Project 16: [Mouse Move Shadow](ttps://elenacoder.github.io/JavaScript30-Projects/project-16-css-text-shadow-mouse-move-effect/)
+-   Project 16: [Mouse Move Shadow](https://elenacoder.github.io/JavaScript30-Projects/project-16-css-text-shadow-mouse-move-effect/)
 -   Project 17: [Sort Without Articles](https://elenacoder.github.io/JavaScript30-Projects/project-17-sorting-without-articles/)
 -   Project 18: [Adding Up Times with Reduce](https://elenacoder.github.io/JavaScript30-Projects/project-18-tally-string-times-with-reduce/)
 -   Project 19: [Webcam Fun](https://elenacoder.github.io/JavaScript30-Projects/project-19-unreal-webcam-fun/)
