@@ -49,6 +49,10 @@ The following projects are included in this repository:
 2. Check out a live demo by visiting the README file of that specific project.
 3. Look for the "Demo"/"How to use" section in the README, where you will find a link to experience the project in action directly in your web browser.
 
+## Demo
+
+To experience a live demo of the JavaScript30 Projects Showcase, you can visit [this link](https://elenacoder.github.io/JavaScript30-Projects/index.html).
+
 ## Technologies used
 
 - HTML
